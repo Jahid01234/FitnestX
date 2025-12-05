@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:fitnestx/features/onboarding/view/onboarding_screen.dart';
+import 'package:fitnestx/features/splash/view/splash_screen.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -15,7 +16,12 @@ class AppRoutes {
   static List<GetPage> routes = [
     GetPage(
       name: splash,
-      page: ()=> Text("app"),
+      page: ()=> SplashScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: splash,
+      page: ()=> OnboardingScreen(),
       transition: Transition.leftToRight,
     ),
   ];
