@@ -1,7 +1,9 @@
+import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/const/app_size.dart';
 import 'package:fitnestx/core/const/icons_path.dart';
 import 'package:fitnestx/core/global_widgets/custom_text_field.dart';
 import 'package:fitnestx/core/global_widgets/app_primary_button.dart';
+import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/auth/complete_profile/controller/complete_profile_controller.dart';
 import 'package:fitnestx/features/auth/complete_profile/view/widgets/complete_profile_header_section.dart';
@@ -78,7 +80,10 @@ class CompleteProfileScreen extends StatelessWidget {
               // Next Button
               AppPrimaryButton(
                 text: "Next >",
-                onTap: (){},
+                textColor: AppColors.white,
+                onTap: (){
+                  Get.toNamed(AppRoutes.goalScreen);
+                },
               ),
               SizedBox(height: getHeight(30)),
             ],

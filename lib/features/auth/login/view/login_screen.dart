@@ -12,8 +12,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignUpScreen extends StatelessWidget {
-  SignUpScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  LoginScreen({super.key});
 
   final SignupController controller = Get.put(SignupController());
 
@@ -31,24 +31,6 @@ class SignUpScreen extends StatelessWidget {
               HeaderSection(),
               SizedBox(height: getHeight(40)),
               CustomTextField(
-                controller: controller.firstNameController,
-                prefixIcon: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Image.asset(IconsPath.person, height: 10),
-                ),
-                hinText: "First name",
-              ),
-              SizedBox(height: getHeight(20)),
-              CustomTextField(
-                controller: controller.lastNameController,
-                prefixIcon: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Image.asset(IconsPath.person, height: 10),
-                ),
-                hinText: "Last name",
-              ),
-              SizedBox(height: getHeight(20)),
-              CustomTextField(
                 controller: controller.emailController,
                 prefixIcon: Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -58,7 +40,7 @@ class SignUpScreen extends StatelessWidget {
               ),
               SizedBox(height: getHeight(20)),
               Obx(
-                () => CustomTextField(
+                    () => CustomTextField(
                   obsecureText: controller.isPasswordHidden.value,
                   controller: controller.passwordController,
                   prefixIcon: Padding(
@@ -78,45 +60,28 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: getHeight(20)),
-              Obx(
-                () => Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              GestureDetector(
+                onTap: () {
 
-                  children: [
-                    GestureDetector(
-                      onTap: controller.toggleCheck,
-                      child: Container(
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(6),
-                          border: Border.all(color: AppColors.gray, width: 1),
-                          color: controller.isChecked.value
-                              ? AppColors.white
-                              : Colors.transparent,
-                        ),
-                        child: controller.isChecked.value
-                            ? Icon(Icons.check, size: 16, color: Colors.black)
-                            : null,
-                      ),
+                },
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    "Forgot password?",
+                    style: globalTextStyle(
+                      color: Colors.grey,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ).copyWith(
+                      decoration: TextDecoration.underline,
                     ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Text(
-                        "By continuing you accept our Privacy Policy and Term of Use",
-                        style: globalTextStyle(
-                          color: AppColors.gray,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
-              SizedBox(height: getHeight(60)),
+
+              SizedBox(height: getHeight(230)),
               AppPrimaryButton(
-                text: "Register",
+                text: "Login",
                 textColor: AppColors.white,
                 onTap: () {
                   Get.toNamed(AppRoutes.completeProfile);
@@ -161,7 +126,7 @@ class SignUpScreen extends StatelessWidget {
               Center(
                 child: RichText(
                   text: TextSpan(
-                    text: "Already have an account? ",
+                    text: "Don’t have an account yet? ",
                     style: globalTextStyle(
                       fontSize: 14,
                       color: AppColors.black,
@@ -169,7 +134,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                        text: "Login",
+                        text: "Register",
                         style: globalTextStyle(
                           fontSize: 15,
                           color: AppColors.secondaryColor1,
@@ -177,7 +142,7 @@ class SignUpScreen extends StatelessWidget {
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            Get.toNamed(AppRoutes.login);
+                            Get.toNamed(AppRoutes.signUp);
                           },
                       ),
                     ],
