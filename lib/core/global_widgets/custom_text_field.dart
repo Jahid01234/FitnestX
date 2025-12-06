@@ -1,3 +1,4 @@
+import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -39,10 +40,10 @@ class CustomTextField extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         border: Border.all(
-          color: borderColor ?? Color(0xff0D0D0D).withValues(alpha: .25),
+          color: borderColor ?? const Color(0xFFF7F8F8),
           width: 1,
         ),
-        borderRadius: BorderRadius.circular(radius ?? 20),
+        borderRadius: BorderRadius.circular(radius ?? 8),
       ),
       child: Center(
         child: TextField(
@@ -55,21 +56,21 @@ class CustomTextField extends StatelessWidget {
           readOnly: readOnly ?? false,
           cursorColor: Colors.grey,
           enableInteractiveSelection: false,
-          style: GoogleFonts.inter(
+          style: GoogleFonts.poppins(
             fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Colors.white,
+            fontWeight: FontWeight.w400,
+            color: AppColors.black,
           ),
           decoration: InputDecoration(
             hintText: hinText,
             suffixIcon: suffixIcon,
             prefixIcon: prefixIcon,
             filled: true,
-            fillColor: const Color(0xFF252525).withValues(alpha: 0.4),
-            hintStyle: GoogleFonts.inter(
+            fillColor: const Color(0xFFF7F8F8),
+            hintStyle: GoogleFonts.poppins(
               fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: Colors.grey,
+              fontWeight: FontWeight.w400,
+              color: AppColors.gray,
             ),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide.none,
