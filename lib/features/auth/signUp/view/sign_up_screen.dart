@@ -3,6 +3,7 @@ import 'package:fitnestx/core/const/app_size.dart';
 import 'package:fitnestx/core/const/icons_path.dart';
 import 'package:fitnestx/core/global_widgets/app_primary_button.dart';
 import 'package:fitnestx/core/global_widgets/custom_text_field.dart';
+import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/auth/signUp/controller/sign_up_controller.dart';
 import 'package:fitnestx/features/auth/signUp/view/Widgets/header_section.dart';
@@ -14,7 +15,7 @@ import 'package:get/get.dart';
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
 
-  final SignupController controller = Get.find<SignupController>();
+  final SignupController controller = Get.put(SignupController());
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +118,9 @@ class SignUpScreen extends StatelessWidget {
               AppPrimaryButton(
                 text: "Register",
                 textColor: AppColors.white,
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(AppRoutes.completeProfile);
+                },
               ),
               SizedBox(height: getHeight(60)),
               Row(

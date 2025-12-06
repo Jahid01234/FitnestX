@@ -1,4 +1,3 @@
-import 'package:fitnestx/core/bindings/controller_binder.dart';
 import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/const/app_size.dart';
 import 'package:fitnestx/core/routes/routes.dart';
@@ -18,7 +17,6 @@ class FitnestXApp extends StatelessWidget {
       theme: ThemeData(
          scaffoldBackgroundColor: AppColors.white
       ),
-      initialBinding: ControllerBinder(),
       initialRoute: AppRoutes.splash,
       getPages: AppRoutes.routes
     );
