@@ -131,7 +131,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Or Continue",
+                    " Or ",
                     style: globalTextStyle(
                       color: Colors.grey,
                       fontSize: 14,

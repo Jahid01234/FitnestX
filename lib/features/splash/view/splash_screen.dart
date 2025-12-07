@@ -18,40 +18,26 @@ class SplashScreen extends StatelessWidget {
           children: [
             Spacer(),
             Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      text: "Fitnest",
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  text: "Fitnest",
+                  style: globalTextStyle(
+                    color: AppColors.black,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 30,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: "X",
                       style: globalTextStyle(
-                        color: AppColors.black,
+                        color: AppColors.primaryColor1,
                         fontWeight: FontWeight.w800,
-                        fontSize: 30,
+                        fontSize: 32,
                       ),
-                      children: [
-                        TextSpan(
-                          text: "X",
-                          style: globalTextStyle(
-                            color: AppColors.primaryColor1,
-                            fontWeight: FontWeight.w800,
-                            fontSize: 32,
-                          ),
-                        ),
-                      ],
                     ),
-                  ),
-                  Text(
-                    "Everybody can train",
-                    style: globalTextStyle(
-                      color: AppColors.gray,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 15,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Spacer(),

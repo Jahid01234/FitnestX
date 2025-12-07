@@ -1,8 +1,10 @@
 import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/const/app_size.dart';
 import 'package:fitnestx/core/const/icons_path.dart';
+import 'package:fitnestx/core/const/images_path.dart';
 import 'package:fitnestx/core/global_widgets/app_primary_button.dart';
 import 'package:fitnestx/core/global_widgets/custom_text_field.dart';
+import 'package:fitnestx/core/global_widgets/success_dialog.dart';
 import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/auth/signUp/controller/sign_up_controller.dart';
@@ -62,7 +64,7 @@ class LoginScreen extends StatelessWidget {
               SizedBox(height: getHeight(20)),
               GestureDetector(
                 onTap: () {
-
+                   Get.toNamed(AppRoutes.forgetPassword);
                 },
                 child: Align(
                   alignment: Alignment.centerRight,
@@ -84,7 +86,17 @@ class LoginScreen extends StatelessWidget {
                 text: "Login",
                 textColor: AppColors.white,
                 onTap: () {
-                  Get.toNamed(AppRoutes.completeProfile);
+                  Get.to(
+                        () => SuccessDialog(
+                      image: ImagePath.loginSuccessImg,
+                      title: "Welcome, Stefani",
+                      subTitle: "You are all set now, let’s reach your\ngoals together with us",
+                      buttonText: "Go To Home",
+                      onTap: () {
+                        //Get.offAllNamed(AppRoutes.home);
+                      },
+                    ),
+                  );
                 },
               ),
               SizedBox(height: getHeight(60)),
@@ -96,7 +108,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Or Continue",
+                    " Or ",
                     style: globalTextStyle(
                       color: Colors.grey,
                       fontSize: 14,

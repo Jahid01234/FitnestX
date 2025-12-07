@@ -1,4 +1,7 @@
 import 'package:fitnestx/features/auth/complete_profile/view/complete_profile_screen.dart';
+import 'package:fitnestx/features/auth/forgot/view/forgot_password_screen.dart';
+import 'package:fitnestx/features/auth/forgot/view/otp_verify_screen.dart';
+import 'package:fitnestx/features/auth/forgot/view/set_new_password_screen.dart';
 import 'package:fitnestx/features/auth/goal/view/goal_screen.dart';
 import 'package:fitnestx/features/auth/login/view/login_screen.dart';
 import 'package:fitnestx/features/auth/signUp/view/sign_up_screen.dart';
@@ -14,7 +17,9 @@ class AppRoutes {
   static const String completeProfile = '/completeProfile';
   static const String goalScreen = '/goalScreen';
   static const String login = '/login';
-
+  static const String forgetPassword = '/forgetPassword';
+  static const String otpVerify = '/otpVerify';
+  static const String setNewPassword = '/setNewPassword';
 
 
 
@@ -50,6 +55,21 @@ class AppRoutes {
     GetPage(
       name: login,
       page: ()=> LoginScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: forgetPassword,
+      page: ()=> ForgetPasswordScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: otpVerify,
+      page: ()=> OtpVerifyScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: setNewPassword,
+      page: ()=> SetNewPasswordScreen(),
       transition: Transition.leftToRight,
     ),
   ];
