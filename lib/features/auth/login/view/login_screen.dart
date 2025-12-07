@@ -10,6 +10,7 @@ import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/auth/signUp/controller/sign_up_controller.dart';
 import 'package:fitnestx/features/auth/signUp/view/Widgets/header_section.dart';
 import 'package:fitnestx/features/auth/signUp/view/Widgets/social_media_button.dart';
+import 'package:fitnestx/features/bottom_nav/view/bottom_nav_bar_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -94,6 +95,7 @@ class LoginScreen extends StatelessWidget {
                       buttonText: "Go To Home",
                       onTap: () {
                         //Get.offAllNamed(AppRoutes.home);
+                        Get.to(BottomNavBarScreen());
                       },
                     ),
                   );
