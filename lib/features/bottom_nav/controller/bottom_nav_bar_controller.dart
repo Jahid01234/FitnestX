@@ -1,4 +1,5 @@
 import 'package:fitnestx/core/const/icons_path.dart';
+import 'package:fitnestx/features/home/view/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,7 +7,7 @@ class BottomNavBarController extends GetxController{
   var selectedIndex = 0.obs;
 
   final List<Widget> pages = [
-    Center(child: Text("Home Page")),
+    HomeScreen(),
     Center(child: Text("Activity Page")),
     Center(child: Text("Camera Page")),
     Center(child: Text("Profile Page")),

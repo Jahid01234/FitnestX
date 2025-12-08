@@ -9,4 +9,5 @@ class ImagePath{
   static const String goal3 = "assets/images/goal3.png";
   static const String loginSuccessImg = "assets/images/loginSuccessImg.png";
   static const String successImg = "assets/images/success.png";
+  static const String bmiBg = "assets/images/bmiIndex.png";
 }

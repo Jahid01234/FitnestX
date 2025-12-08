@@ -14,11 +14,20 @@ class OnboardingController extends GetxController {
   void onInit() {
     super.onInit();
     loadOnboardingPage();
+    _precacheImages();
   }
 
 
   void loadOnboardingPage(){
     onboardingPage.addAll(onboardingItemsListData);
+  }
+
+  void _precacheImages() {
+    Future.delayed(Duration.zero, () {
+      for (var items in onboardingItemsListData) {
+        precacheImage(AssetImage(items.image), Get.context!);
+      }
+    });
   }
 
   void nextPage() {

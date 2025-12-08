@@ -27,7 +27,7 @@ class OnboardingScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(item.image, fit: BoxFit.cover),
+                    Image.asset(item.image,fit: BoxFit.cover),
                     SizedBox(height: getHeight(35)),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),

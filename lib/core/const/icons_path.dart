@@ -17,4 +17,5 @@ class IconsPath {
   static const String homeAc = "assets/icons/home_ac.png";
   static const String profileAc = "assets/icons/profile_ac.png";
   static const String search = "assets/icons/search.png";
+  static const String notification = "assets/icons/notification.png";
 }
