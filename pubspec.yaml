@@ -41,6 +41,9 @@ dependencies:
   carousel_slider: ^5.1.1
   flutter_spinkit: ^5.2.2
   pinput: ^6.0.1
+  simple_animation_progress_bar: ^1.9.2
+  dotted_dashed_line: ^0.0.3
+  simple_circular_progress_bar: ^1.0.2
 
 
 dev_dependencies:

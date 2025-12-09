@@ -3,6 +3,13 @@ import 'package:get/get.dart';
 
 class HomeController extends GetxController{
   var showingTooltipOnSpots = <int>[21].obs;
+  List waterArr = [
+    {"title": "6am - 8am", "subtitle": "600ml"},
+    {"title": "9am - 11am", "subtitle": "500ml"},
+    {"title": "11am - 2pm", "subtitle": "1000ml"},
+    {"title": "2pm - 4pm", "subtitle": "700ml"},
+    {"title": "4pm - now", "subtitle": "900ml"},
+  ];
 
   List<FlSpot> get allSpots => const [
     FlSpot(0, 20),
@@ -41,5 +48,27 @@ class HomeController extends GetxController{
   void updateTooltipSpot(int spotIndex) {
     showingTooltipOnSpots.clear();
     showingTooltipOnSpots.add(spotIndex);
+  }
+
+
+  // workout process ........
+  var selectedDay = 2.obs; // Friday index
+  var period = 'Weekly'.obs;
+
+  final List<String> days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  final List<double> dataPoints = [20, 60, 20, 80, 50 ,20, 80,];
+  final List<double> dataPointss = [40, 10, 80, 24, 64, 70, 20,];
+
+  void selectDay(int index) {
+    selectedDay.value = index;
+  }
+
+  void changePeriod() {
+    // Toggle between periods
+    if (period.value == 'Weekly') {
+      period.value = 'Monthly';
+    } else {
+      period.value = 'Weekly';
+    }
   }
 }

@@ -3,8 +3,10 @@ import 'package:fitnestx/core/const/app_size.dart';
 import 'package:fitnestx/core/global_widgets/app_primary_button.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/home/view/widgets/activity_status_card.dart';
+import 'package:fitnestx/features/home/view/widgets/activity_status_card2.dart';
 import 'package:fitnestx/features/home/view/widgets/bmi_card_chart_section.dart';
 import 'package:fitnestx/features/home/view/widgets/home_header_section.dart';
+import 'package:fitnestx/features/home/view/widgets/workout_progress_chart.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -78,6 +80,12 @@ class HomeScreen extends StatelessWidget {
                       ),
                       SizedBox(height: getHeight(10)),
                       ActivityStatusCard(),
+                      SizedBox(height: getHeight(20)),
+                      ActivityStatusCard2(),
+                      SizedBox(height: getHeight(30)),
+                      WorkoutProgressChart(),
+                      SizedBox(height: getHeight(100)),
+
 
                     ],
                   ),
