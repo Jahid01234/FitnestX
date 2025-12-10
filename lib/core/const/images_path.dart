@@ -15,4 +15,8 @@ class ImagePath{
   static const String workOut2 = "assets/images/wo2.png";
   static const String workOut3 = "assets/images/wo3.png";
   static const String food = "assets/images/food.png";
+  static const String glass = "assets/images/glass.png";
+  static const String boots = "assets/images/boots.png";
+  static const String activityImg1 = "assets/images/activityImg1.png";
+  static const String activityImg2 = "assets/images/activityImg2.png";
 }

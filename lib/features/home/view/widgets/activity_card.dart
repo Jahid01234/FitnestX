@@ -1,14 +1,13 @@
-import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
-import 'package:fitnestx/features/home/model/workout_model.dart';
+import 'package:fitnestx/features/home/model/activity_model.dart';
 import 'package:flutter/material.dart';
 
-class WorkoutCard extends StatelessWidget {
-  final WorkoutModel workout;
+class ActivityCard extends StatelessWidget {
+  final ActivityModel activity;
 
-  const WorkoutCard({
+  const ActivityCard({
     super.key,
-    required this.workout,
+    required this.activity,
   });
 
   @override
@@ -39,7 +38,7 @@ class WorkoutCard extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.all(6),
-              child: Image.asset(workout.image),
+              child: Image.asset(activity.image),
             ),
           ),
           const SizedBox(width: 16),
@@ -49,7 +48,7 @@ class WorkoutCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  workout.title,
+                  activity.title,
                   style: globalTextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
@@ -57,21 +56,10 @@ class WorkoutCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  "${workout.calories} | ${workout.duration}",
+                  activity.timeAgo,
                   style: globalTextStyle(
                     fontSize: 12,
                     color: Colors.grey.shade600,
-                  ),
-                ),
-                const SizedBox(height: 10),
-
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
-                  child: LinearProgressIndicator(
-                    value: workout.progress,
-                    minHeight: 6,
-                    backgroundColor: Colors.grey.shade300,
-                    valueColor: AlwaysStoppedAnimation(AppColors.primaryColor1),
                   ),
                 ),
               ],
@@ -79,20 +67,14 @@ class WorkoutCard extends StatelessWidget {
           ),
 
           const SizedBox(width: 10),
-
-          Container(
-            height: 35,
-            width: 35,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: AppColors.secondaryColor2,width: 1.5),
+          IconButton(
+            icon: const Icon(
+              Icons.more_vert,
+              color: Colors.black,
             ),
-            child: const Icon(
-              Icons.arrow_forward_ios,
-              size: 18,
-              color: AppColors.secondaryColor2,
-            ),
-          ),
+            onPressed: () {
+            },
+          )
         ],
       ),
     );

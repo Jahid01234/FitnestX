@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/const/app_size.dart';
 import 'package:fitnestx/core/global_widgets/app_primary_button.dart';
@@ -69,7 +70,9 @@ class HomeScreen extends StatelessWidget {
                                 height: 50,
                                 weight: 120,
                                 textColor: AppColors.white,
-                                onTap: () {},
+                                onTap: () {
+                                  Get.toNamed(AppRoutes.activityTracker);
+                                },
                               ),
                             ],
                           ),
@@ -123,15 +126,13 @@ class HomeScreen extends StatelessWidget {
                               padding: EdgeInsets.zero,
                               shrinkWrap: true,
                               physics: NeverScrollableScrollPhysics(),
-                          itemCount: controller.workoutsDataList.length,
+                          itemCount: min(4,controller.workoutsDataList.length),
                           itemBuilder: (context, index) {
                             return WorkoutCard(workout: controller.workoutsDataList[index]);
                           },
                         ),
                       ),
                       SizedBox(height: getHeight(50)),
-
-
                     ],
                   ),
                 ),

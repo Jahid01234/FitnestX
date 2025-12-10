@@ -75,7 +75,7 @@ class HomeController extends GetxController{
 
   final List<String> days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   final List<double> dataPoints = [20, 60, 20, 80, 50 ,20, 80,];
-  final List<double> dataPointss = [40, 10, 80, 24, 64, 70, 20,];
+  final List<double> dataPointss = [40, 10, 80, 15, 60, 70, 20,];
 
   void selectDay(int index) {
     selectedDay.value = index;

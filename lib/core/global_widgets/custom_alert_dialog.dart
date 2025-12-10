@@ -1,4 +1,3 @@
-
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -19,15 +18,11 @@ class CustomAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Theme.of(context).brightness == Brightness.dark
-          ? Colors.black
-          : Colors.white,
+      backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
           side: BorderSide(
-            color:Theme.of(context).brightness == Brightness.dark
-                ? Colors.grey
-                : Colors.transparent,
+            color: Colors.transparent,
           )
       ),
       child: Padding(
@@ -41,27 +36,19 @@ class CustomAlertDialog extends StatelessWidget {
               style: globalTextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w500,
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.black,
+                color: Colors.black,
               ),
             ),
-
             const SizedBox(height: 10),
-
             Text(
               description,
               style: globalTextStyle(
                 fontSize: 14,
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white54
-                    : Colors.black54,
+                color: Colors.black54,
                 fontWeight: FontWeight.w400,
               ),
             ),
-
             const SizedBox(height: 25),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -71,9 +58,7 @@ class CustomAlertDialog extends StatelessWidget {
                     "Cancel",
                     style: globalTextStyle(
                       fontSize: 15,
-                      color: Theme.of(context).brightness == Brightness.dark
-                          ? Colors.white54
-                          : Colors.black54,
+                      color: Colors.black54,
                     ),
                   ),
                 ),
@@ -84,9 +69,7 @@ class CustomAlertDialog extends StatelessWidget {
                     "Delete",
                     style: globalTextStyle(
                       fontSize: 15,
-                      color: Theme.of(context).brightness == Brightness.dark
-                          ? Colors.white54
-                          : Colors.black54,
+                      color: Colors.black54,
                     ),
                   ),
                 ),
