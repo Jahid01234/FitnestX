@@ -11,4 +11,8 @@ class ImagePath{
   static const String successImg = "assets/images/success.png";
   static const String bmiBg = "assets/images/bmiIndex.png";
   static const String sleepGraph = "assets/images/sleep_graph.png";
+  static const String workOut1 = "assets/images/wo1.png";
+  static const String workOut2 = "assets/images/wo2.png";
+  static const String workOut3 = "assets/images/wo3.png";
+  static const String food = "assets/images/food.png";
 }

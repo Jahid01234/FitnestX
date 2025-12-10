@@ -5,6 +5,8 @@ import 'package:fitnestx/features/auth/forgot/view/set_new_password_screen.dart'
 import 'package:fitnestx/features/auth/goal/view/goal_screen.dart';
 import 'package:fitnestx/features/auth/login/view/login_screen.dart';
 import 'package:fitnestx/features/auth/signUp/view/sign_up_screen.dart';
+import 'package:fitnestx/features/home/view/see_more_latest_workout_screen.dart';
+import 'package:fitnestx/features/notification/view/notification_screen.dart';
 import 'package:fitnestx/features/onboarding/view/onboarding_screen.dart';
 import 'package:fitnestx/features/splash/view/splash_screen.dart';
 import 'package:get/get.dart';
@@ -20,6 +22,8 @@ class AppRoutes {
   static const String forgetPassword = '/forgetPassword';
   static const String otpVerify = '/otpVerify';
   static const String setNewPassword = '/setNewPassword';
+  static const String seeMoreLatestWorkout = '/seeMoreLatestWorkout';
+  static const String notification = '/notification';
 
 
 
@@ -70,6 +74,16 @@ class AppRoutes {
     GetPage(
       name: setNewPassword,
       page: ()=> SetNewPasswordScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: seeMoreLatestWorkout,
+      page: ()=> SeeMoreLatestWorkoutScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: notification,
+      page: ()=> NotificationScreen(),
       transition: Transition.leftToRight,
     ),
   ];

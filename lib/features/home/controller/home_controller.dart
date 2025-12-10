@@ -1,7 +1,25 @@
+import 'package:fitnestx/features/home/model/workout_model.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController{
+
+  RxList<WorkoutModel> workoutsDataList = <WorkoutModel>[].obs;
+
+
+
+  @override
+  void onInit() {
+    super.onInit();
+    loadWorkout();
+  }
+
+  void loadWorkout() {
+    workoutsDataList.value = workouts;
+  }
+
+
+
   var showingTooltipOnSpots = <int>[21].obs;
   List waterArr = [
     {"title": "6am - 8am", "subtitle": "600ml"},

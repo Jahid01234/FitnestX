@@ -1,7 +1,9 @@
 import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/const/icons_path.dart';
+import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeHeaderSection extends StatelessWidget {
   const HomeHeaderSection({super.key,});
@@ -32,16 +34,21 @@ class HomeHeaderSection extends StatelessWidget {
             ),
           ],
         ),
-        Container(
-          height: 40,
-          width: 40,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: Colors.grey.withValues(alpha: 0.1),
-          ),
-          child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset(IconsPath.notification),
+        GestureDetector(
+          onTap: (){
+            Get.toNamed(AppRoutes.notification);
+          },
+          child: Container(
+            height: 40,
+            width: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: Colors.grey.withValues(alpha: 0.1),
+            ),
+            child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(IconsPath.notification),
+            ),
           ),
         ),
       ],
