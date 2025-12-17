@@ -18,4 +18,12 @@ class IconsPath {
   static const String profileAc = "assets/icons/profile_ac.png";
   static const String search = "assets/icons/search.png";
   static const String notification = "assets/icons/notification.png";
+  static const String achievement = "assets/icons/achievement.png";
+  static const String activityHistory = "assets/icons/activityHistory.png";
+  static const String contactUs = "assets/icons/contactUs.png";
+  static const String personal = "assets/icons/personal.png";
+  static const String popUpNotification = "assets/icons/popUpNotification.png";
+  static const String privacy = "assets/icons/privacy.png";
+  static const String setting = "assets/icons/setting.png";
+  static const String workoutProgress = "assets/icons/workoutProgress.png";
 }

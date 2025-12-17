@@ -94,8 +94,7 @@ class LoginScreen extends StatelessWidget {
                       subTitle: "You are all set now, let’s reach your\ngoals together with us",
                       buttonText: "Go To Home",
                       onTap: () {
-                        //Get.offAllNamed(AppRoutes.home);
-                        Get.to(BottomNavBarScreen());
+                        Get.offAllNamed(AppRoutes.bottomNavBar);
                       },
                     ),
                   );

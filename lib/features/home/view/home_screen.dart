@@ -1,7 +1,9 @@
 import 'dart:math';
 import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/const/app_size.dart';
-import 'package:fitnestx/core/global_widgets/app_primary_button.dart';
+import 'package:fitnestx/core/const/images_path.dart';
+import 'package:fitnestx/core/global_widgets/activities_action_card.dart';
+import 'package:fitnestx/core/global_widgets/success_dialog.dart';
 import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/home/controller/home_controller.dart';
@@ -37,46 +39,16 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       BMICardChartSection(),
                       SizedBox(height: getHeight(30)),
-                      Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Colors.purple.shade50,
-                              Colors.blue.shade50,
-                            ],
-                          ),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(15),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Today Target",
-                                style: globalTextStyle(
-                                  color: AppColors.black,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              AppPrimaryButton(
-                                text: "Check",
-                                fontSize: 14,
-                                bgColor: Color(0xFFD4B5E8),
-                                height: 50,
-                                weight: 120,
-                                textColor: AppColors.white,
-                                onTap: () {
-                                  Get.toNamed(AppRoutes.activityTracker);
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
+                      ActivitiesActionCard(
+                        title: "Today Target",
+                        buttonText: "Check",
+                        gradientColors: [
+                          Colors.purple.shade50,
+                          Colors.blue.shade50,
+                        ],
+                        onTap: () {
+                          Get.toNamed(AppRoutes.activityTracker);
+                        },
                       ),
                       SizedBox(height: getHeight(30)),
                       Text(
@@ -121,14 +93,30 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: getHeight(10)),
-                      Obx(
-                            () => ListView.builder(
+                      Obx(() => ListView.builder(
                               padding: EdgeInsets.zero,
                               shrinkWrap: true,
                               physics: NeverScrollableScrollPhysics(),
                           itemCount: min(4,controller.workoutsDataList.length),
                           itemBuilder: (context, index) {
-                            return WorkoutCard(workout: controller.workoutsDataList[index]);
+                            return GestureDetector(
+                                onTap: (){
+                                  Get.to(
+                                        () => SuccessDialog(
+                                      image: ImagePath.loginSuccessImg,
+                                      title: "Congratulations, You Have\n Finished Your Workout",
+                                      subTitle: "Exercises is king and nutrition is queen.\n Combine "
+                                          "the two and you will have a kingdom\n-Jack Lalanne",
+                                      buttonText: "Back To Home",
+                                      onTap: () {
+                                        Get.offAllNamed(AppRoutes.bottomNavBar);
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: WorkoutCard(workout: controller.workoutsDataList[index],
+                                ),
+                            );
                           },
                         ),
                       ),

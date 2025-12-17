@@ -5,6 +5,7 @@ import 'package:fitnestx/features/auth/forgot/view/set_new_password_screen.dart'
 import 'package:fitnestx/features/auth/goal/view/goal_screen.dart';
 import 'package:fitnestx/features/auth/login/view/login_screen.dart';
 import 'package:fitnestx/features/auth/signUp/view/sign_up_screen.dart';
+import 'package:fitnestx/features/bottom_nav/view/bottom_nav_bar_screen.dart';
 import 'package:fitnestx/features/home/view/activity_tracker_screen.dart';
 import 'package:fitnestx/features/home/view/see_more_latest_activity_screen.dart';
 import 'package:fitnestx/features/home/view/see_more_latest_workout_screen.dart';
@@ -28,6 +29,7 @@ class AppRoutes {
   static const String notification = '/notification';
   static const String activityTracker = '/activityTracker';
   static const String seeMoreLatestActivity = '/seeMoreLatestActivity';
+  static const String bottomNavBar = '/bottomNavBar';
 
 
 
@@ -98,6 +100,11 @@ class AppRoutes {
     GetPage(
       name: seeMoreLatestActivity,
       page: ()=> SeeMoreLatestActivityScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: bottomNavBar,
+      page: ()=> BottomNavBarScreen(),
       transition: Transition.leftToRight,
     ),
   ];

@@ -35,13 +35,14 @@ class SuccessDialog extends StatelessWidget {
                 children: [
                   Text(
                     title,
+                    textAlign: TextAlign.center,
                     style: globalTextStyle(
                       color: AppColors.black,
                       fontWeight: FontWeight.w600,
                       fontSize: 22,
                     ),
                   ),
-                  SizedBox(height: getHeight(5)),
+                  SizedBox(height: getHeight(15)),
                   Text(
                     subTitle,
                     textAlign: TextAlign.center,
@@ -54,7 +55,7 @@ class SuccessDialog extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: getHeight(220)),
+            SizedBox(height: getHeight(200)),
             AppPrimaryButton(
               text: buttonText,
               textColor: AppColors.white,

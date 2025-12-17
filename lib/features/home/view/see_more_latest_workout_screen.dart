@@ -1,5 +1,8 @@
 import 'package:fitnestx/core/const/app_size.dart';
+import 'package:fitnestx/core/const/images_path.dart';
 import 'package:fitnestx/core/global_widgets/app_back_button.dart';
+import 'package:fitnestx/core/global_widgets/success_dialog.dart';
+import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/home/controller/home_controller.dart';
 import 'package:fitnestx/features/home/view/widgets/workouts_card.dart';
@@ -42,8 +45,23 @@ class SeeMoreLatestWorkoutScreen extends StatelessWidget {
                   padding: EdgeInsets.zero,
                   itemCount: controller.workoutsDataList.length,
                   itemBuilder: (context, index) {
-                    return WorkoutCard(
-                      workout: controller.workoutsDataList[index],
+                    return GestureDetector(
+                      onTap: (){
+                        Get.to(
+                              () => SuccessDialog(
+                            image: ImagePath.loginSuccessImg,
+                            title: "Congratulations, You Have\n Finished Your Workout",
+                            subTitle: "Exercises is king and nutrition is queen.\n Combine the two and you will have a kingdom\n-Jack Lalanne",
+                            buttonText: "Back To Home",
+                            onTap: () {
+                              Get.offAllNamed(AppRoutes.bottomNavBar);
+                            },
+                          ),
+                        );
+                      },
+                      child: WorkoutCard(
+                        workout: controller.workoutsDataList[index],
+                      ),
                     );
                   },
                 ),

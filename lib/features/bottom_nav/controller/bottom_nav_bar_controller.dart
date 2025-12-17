@@ -1,20 +1,12 @@
 import 'package:fitnestx/core/const/icons_path.dart';
 import 'package:fitnestx/features/home/view/home_screen.dart';
+import 'package:fitnestx/features/profile/view/profile_screen.dart';
+import 'package:fitnestx/features/workout_tracker/view/workout_tracker_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BottomNavBarController extends GetxController{
   var selectedIndex = 0.obs;
-
-  final List<Widget> pages = [
-    HomeScreen(),
-    Center(child: Text("Activity Page")),
-    Center(child: Text("Camera Page")),
-    Center(child: Text("Profile Page")),
-  ];
-
-
-
   final List<Map<String, String>> navItems = [
     {
       'active': IconsPath.homeAc,
@@ -37,4 +29,11 @@ class BottomNavBarController extends GetxController{
   void changeIndex(int index) {
     selectedIndex.value = index;
   }
+
+  final List<Widget> pages = [
+    HomeScreen(),
+    WorkoutTrackerScreen(),
+    Center(child: Text("Camera Page")),
+    ProfileScreen()
+  ];
 }
