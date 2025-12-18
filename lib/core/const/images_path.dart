@@ -19,4 +19,7 @@ class ImagePath{
   static const String boots = "assets/images/boots.png";
   static const String activityImg1 = "assets/images/activityImg1.png";
   static const String activityImg2 = "assets/images/activityImg2.png";
+  static const String waterBottle = "assets/images/water-bottle.png";
+  static const String skippingRope = "assets/images/skipping-rope.png";
+  static const String barbel = "assets/images/barbel.png";
 }

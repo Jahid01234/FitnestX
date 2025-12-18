@@ -1,8 +1,10 @@
 import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/global_widgets/app_primary_button.dart';
+import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/workout_tracker/model/train_option_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TrainOptionCard extends StatelessWidget {
   final TrainOptionModel trainOptionModel;
@@ -49,7 +51,12 @@ class TrainOptionCard extends StatelessWidget {
                   bgColor: AppColors.white,
                   textColor: AppColors.primaryColor1,
                   fontWeight: FontWeight.w400,
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(
+                        AppRoutes.workoutDetails,
+                        arguments: trainOptionModel,
+                    );
+                  },
                 ),
               ],
             ),

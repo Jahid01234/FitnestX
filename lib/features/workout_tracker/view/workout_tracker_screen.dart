@@ -64,7 +64,7 @@ class WorkoutTrackerScreen extends StatelessWidget {
           // Draggable bottom sheet
           DraggableScrollableSheet(
             initialChildSize: 0.5,
-            minChildSize: 0.4,
+            minChildSize: 0.48,
             maxChildSize: 0.9,
             builder: (BuildContext context, ScrollController scrollController) {
               return Container(
@@ -167,8 +167,7 @@ class WorkoutTrackerScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(height: 10),
-                              Obx(
-                                    () => ListView.builder(
+                              Obx(() => ListView.builder(
                                   padding: EdgeInsets.zero,
                                   shrinkWrap: true,
                                   physics: const NeverScrollableScrollPhysics(),
