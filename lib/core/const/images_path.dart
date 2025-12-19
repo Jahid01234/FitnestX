@@ -22,4 +22,13 @@ class ImagePath{
   static const String waterBottle = "assets/images/water-bottle.png";
   static const String skippingRope = "assets/images/skipping-rope.png";
   static const String barbel = "assets/images/barbel.png";
+  static const String armRaises = "assets/images/armRaises.png";
+  static const String inclinePushUp = "assets/images/inclinePushUp.png";
+  static const String jumpingJack = "assets/images/jumpingJack.png";
+  static const String pushUp = "assets/images/pushUp.png";
+  static const String restDrink = "assets/images/restDrink.png";
+  static const String skipping = "assets/images/skipping.png";
+  static const String squats = "assets/images/squats.png";
+  static const String warmUp = "assets/images/warmUp.png";
+
 }

@@ -1,28 +1,39 @@
 import 'package:fitnestx/features/workout_tracker/model/equipment_model.dart';
+import 'package:fitnestx/features/workout_tracker/model/exercise_set.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+
 
 class WorkoutDetailsController extends GetxController{
   Rx<DateTime> selectedDate = DateTime.now().obs;
   RxString difficulty = 'Beginner'.obs;
   var isFavorite = false.obs;
   RxList<EquipmentModel> equipmentDataList = <EquipmentModel>[].obs;
+  RxList<ExerciseSet> exerciseSetDataList = <ExerciseSet>[].obs;
+
 
 
   @override
   void onInit() {
     super.onInit();
     loadEquipmentData();
+    loadExerciseSetData();
   }
 
   void loadEquipmentData(){
     equipmentDataList.value = equipmentData;
   }
 
+  void loadExerciseSetData(){
+    exerciseSetDataList.value =  ExerciseSet.exerciseSetData;
+  }
+
   void toggleFavorite() {
     isFavorite.value = !isFavorite.value;
   }
+
+
 
 
   // Date Picker.........
@@ -71,5 +82,4 @@ class WorkoutDetailsController extends GetxController{
       },
     );
   }
-
 }

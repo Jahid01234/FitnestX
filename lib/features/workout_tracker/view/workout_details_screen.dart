@@ -2,11 +2,14 @@ import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/const/app_size.dart';
 import 'package:fitnestx/core/const/icons_path.dart';
 import 'package:fitnestx/core/global_widgets/app_back_button.dart';
+import 'package:fitnestx/core/global_widgets/app_primary_button.dart';
+import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/workout_tracker/controller/workout_details_controller.dart';
 import 'package:fitnestx/features/workout_tracker/model/train_option_model.dart';
 import 'package:fitnestx/features/workout_tracker/view/widgets/action_select_tile.dart';
 import 'package:fitnestx/features/workout_tracker/view/widgets/equipment_card.dart';
+import 'package:fitnestx/features/workout_tracker/view/widgets/exercise_set_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -194,10 +197,12 @@ class WorkoutDetailsScreen extends StatelessWidget {
                             ),
                             SizedBox(height: 30),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 15),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 15,
+                              ),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     'You’ll Need',
@@ -221,18 +226,118 @@ class WorkoutDetailsScreen extends StatelessWidget {
                             SizedBox(height: 12),
                             SizedBox(
                               height: 185,
-                              child: Obx(() => ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: controller.equipmentDataList.length,
-                                itemBuilder: (context, index) {
+                              child: Obx(
+                                () => ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount:
+                                      controller.equipmentDataList.length,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding: const EdgeInsets.only(
+                                        right: 10,
+                                        left: 15,
+                                      ),
+                                      child: EquipmentCard(
+                                        equipmentModel:
+                                            controller.equipmentDataList[index],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 30),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 15,
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Exercises',
+                                    style: globalTextStyle(
+                                      fontSize: 18,
+                                      color: AppColors.black,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  Text(
+                                    '3 Sets',
+                                    style: globalTextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Obx(() {
+                              return ListView.builder(
+                                padding: EdgeInsets.zero,
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount:
+                                    controller.exerciseSetDataList.length,
+                                itemBuilder: (context, setIndex) {
+                                  final set =
+                                      controller.exerciseSetDataList[setIndex];
                                   return Padding(
-                                    padding: const EdgeInsets.only(right: 10,left: 15),
-                                    child: EquipmentCard(
-                                      equipmentModel: controller.equipmentDataList[index],
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 15,
+                                      vertical: 10,
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          set.setName,
+                                          style: globalTextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w600,
+                                            color: AppColors.black,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 8),
+                                        ListView.builder(
+                                          padding: EdgeInsets.zero,
+                                          itemCount: set.exercises.length,
+                                          shrinkWrap: true,
+                                          physics:
+                                              const NeverScrollableScrollPhysics(),
+                                          itemBuilder: (context, index) {
+                                            return ExerciseSetCard(
+                                              exercise: set.exercises[index],
+                                              onTap: () {
+                                                Get.toNamed(
+                                                    AppRoutes.exerciseDetails,
+                                                    arguments: set.exercises[index],
+                                                );
+                                              },
+                                            );
+                                          },
+                                        ),
+                                      ],
                                     ),
                                   );
                                 },
-                               ),
+                              );
+                             },
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(
+                                15,
+                                10,
+                                15,
+                                20,
+                              ),
+                              child: AppPrimaryButton(
+                                text: "Start Workout",
+                                textColor: Colors.white,
+                                onTap: () {},
                               ),
                             ),
                           ],

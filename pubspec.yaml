@@ -44,6 +44,8 @@ dependencies:
   simple_animation_progress_bar: ^1.9.2
   dotted_dashed_line: ^0.0.3
   simple_circular_progress_bar: ^1.0.2
+  video_player: ^2.10.1
+  expandable_text: ^2.3.0
 
 
 dev_dependencies:
