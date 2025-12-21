@@ -2,6 +2,7 @@ import 'package:expandable_text/expandable_text.dart';
 import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/global_widgets/app_back_button.dart';
 import 'package:fitnestx/core/global_widgets/app_primary_button.dart';
+import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/workout_tracker/controller/exercise_details_controller.dart';
 import 'package:fitnestx/features/workout_tracker/controller/workout_details_controller.dart';
@@ -175,16 +176,15 @@ class ExerciseDetailsScreen extends StatelessWidget {
                     RepetitionsCalorieCard(),
                     const SizedBox(height: 20),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                       0,
-                        10,
-                       0,
-                        20
-                      ),
+                      padding: const EdgeInsets.only(bottom: 20,top: 10),
                       child: AppPrimaryButton(
                         text: "Save",
                         textColor: Colors.white,
-                        onTap: () {},
+                        onTap: () {
+                          controller.videoController.pause();
+                          Get.delete<WorkoutDetailsController>();
+                          Get.toNamed(AppRoutes.workoutSchedule);
+                        },
                       ),
                     ),
                   ],

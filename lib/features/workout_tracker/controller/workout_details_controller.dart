@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 
-class WorkoutDetailsController extends GetxController{
+class WorkoutDetailsController extends GetxController {
   Rx<DateTime> selectedDate = DateTime.now().obs;
   RxString difficulty = 'Beginner'.obs;
   var isFavorite = false.obs;

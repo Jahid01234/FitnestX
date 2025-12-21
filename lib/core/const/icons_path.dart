@@ -26,4 +26,6 @@ class IconsPath {
   static const String privacy = "assets/icons/privacy.png";
   static const String setting = "assets/icons/setting.png";
   static const String workoutProgress = "assets/icons/workoutProgress.png";
+  static const String barbelIcon = "assets/icons/barbelIcon.png";
+  static const String chartIcon = "assets/icons/chartIcon.png";
 }

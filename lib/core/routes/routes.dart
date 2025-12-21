@@ -12,8 +12,10 @@ import 'package:fitnestx/features/home/view/see_more_latest_workout_screen.dart'
 import 'package:fitnestx/features/notification/view/notification_screen.dart';
 import 'package:fitnestx/features/onboarding/view/onboarding_screen.dart';
 import 'package:fitnestx/features/splash/view/splash_screen.dart';
+import 'package:fitnestx/features/workout_tracker/view/add_schedule_screen.dart';
 import 'package:fitnestx/features/workout_tracker/view/exercise_details_screen.dart';
 import 'package:fitnestx/features/workout_tracker/view/workout_details_screen.dart';
+import 'package:fitnestx/features/workout_tracker/view/workout_schedule_screen.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -34,6 +36,8 @@ class AppRoutes {
   static const String bottomNavBar = '/bottomNavBar';
   static const String workoutDetails = '/workoutDetails';
   static const String exerciseDetails = '/exerciseDetails';
+  static const String workoutSchedule = '/workoutSchedule';
+  static const String addSchedule = '/AddSchedule';
 
 
 
@@ -120,6 +124,16 @@ class AppRoutes {
     GetPage(
       name: exerciseDetails,
       page: ()=> ExerciseDetailsScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: workoutSchedule,
+      page: ()=> WorkoutScheduleScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: addSchedule,
+      page: ()=> AddScheduleScreen(),
       transition: Transition.leftToRight,
     ),
   ];
