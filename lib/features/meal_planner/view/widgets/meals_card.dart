@@ -1,21 +1,22 @@
 import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
-import 'package:fitnestx/features/workout_tracker/controller/workout_tracker_controller.dart';
-import 'package:fitnestx/features/workout_tracker/model/upcoming_workout_model.dart';
+import 'package:fitnestx/features/meal_planner/controller/meal_planner_controller.dart';
+import 'package:fitnestx/features/meal_planner/model/meals_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class UpcomingWorkoutCard extends StatelessWidget {
-  final WorkoutTrackerController controller;
-  final UpcomingWorkoutModel workoutModel;
+class MealsCard extends StatelessWidget {
+  final MealPlannerController controller;
+  final MealsModel mealsModel;
   final int index;
 
- const UpcomingWorkoutCard({
+  const MealsCard({
     super.key,
     required this.controller,
-    required this.workoutModel,
+    required this.mealsModel,
     required this.index,
   });
+
 
 
 
@@ -38,18 +39,10 @@ class UpcomingWorkoutCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Container(
-            height: 55,
-            width: 55,
-            decoration: BoxDecoration(
-              color: Colors.purple.shade50,
-              shape: BoxShape.circle,
-            ),
-            child: Padding(
+           Padding(
               padding: const EdgeInsets.all(6),
-              child: Image.asset(workoutModel.image),
+              child: Image.asset(mealsModel.image,height: 30,width: 30,),
             ),
-          ),
           const SizedBox(width: 16),
 
           Expanded(
@@ -57,7 +50,7 @@ class UpcomingWorkoutCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  workoutModel.title,
+                  mealsModel.title,
                   style: globalTextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
@@ -65,7 +58,7 @@ class UpcomingWorkoutCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  workoutModel.time,
+                  mealsModel.time,
                   style: globalTextStyle(
                     fontSize: 12,
                     color: Colors.grey.shade600,
@@ -76,13 +69,24 @@ class UpcomingWorkoutCard extends StatelessWidget {
           ),
 
           const SizedBox(width: 10),
-          Obx(() => Switch(
-            value: controller.upcomingWorkoutList[index].active,
-            activeColor: AppColors.primaryColor2,
-            onChanged: (value) {
-              controller.toggleWorkout(index, value);
+          Obx(() => IconButton(
+            onPressed: () {
+              controller.toggleMealList(
+                index,
+                !controller.mealsList[index].active,
+              );
             },
-          )),
+            icon: Icon(
+              controller.mealsList[index].active
+                  ? Icons.notifications_active
+                  : Icons.notifications_off_outlined,
+              color: controller.mealsList[index].active
+                  ? AppColors.primaryColor2
+                  : Colors.grey.shade400,
+              size: 24,
+             ),
+            ),
+          ),
         ],
       ),
     );

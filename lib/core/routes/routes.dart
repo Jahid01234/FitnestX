@@ -9,6 +9,7 @@ import 'package:fitnestx/features/bottom_nav/view/bottom_nav_bar_screen.dart';
 import 'package:fitnestx/features/home/view/activity_tracker_screen.dart';
 import 'package:fitnestx/features/home/view/see_more_latest_activity_screen.dart';
 import 'package:fitnestx/features/home/view/see_more_latest_workout_screen.dart';
+import 'package:fitnestx/features/meal_planner/view/meal_planner_screen.dart';
 import 'package:fitnestx/features/notification/view/notification_screen.dart';
 import 'package:fitnestx/features/onboarding/view/onboarding_screen.dart';
 import 'package:fitnestx/features/splash/view/splash_screen.dart';
@@ -16,6 +17,7 @@ import 'package:fitnestx/features/workout_tracker/view/add_schedule_screen.dart'
 import 'package:fitnestx/features/workout_tracker/view/exercise_details_screen.dart';
 import 'package:fitnestx/features/workout_tracker/view/workout_details_screen.dart';
 import 'package:fitnestx/features/workout_tracker/view/workout_schedule_screen.dart';
+import 'package:fitnestx/features/workout_tracker/view/workout_tracker_screen.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -37,7 +39,9 @@ class AppRoutes {
   static const String workoutDetails = '/workoutDetails';
   static const String exerciseDetails = '/exerciseDetails';
   static const String workoutSchedule = '/workoutSchedule';
-  static const String addSchedule = '/AddSchedule';
+  static const String addSchedule = '/addSchedule';
+  static const String workoutTracker = '/workoutTracker';
+  static const String mealPlanner = '/mealPlanner';
 
 
 
@@ -134,6 +138,16 @@ class AppRoutes {
     GetPage(
       name: addSchedule,
       page: ()=> AddScheduleScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: workoutTracker,
+      page: ()=> WorkoutTrackerScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: mealPlanner,
+      page: ()=> MealPlannerScreen(),
       transition: Transition.leftToRight,
     ),
   ];

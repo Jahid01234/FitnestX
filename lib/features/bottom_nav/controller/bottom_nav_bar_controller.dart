@@ -1,7 +1,7 @@
 import 'package:fitnestx/core/const/icons_path.dart';
+import 'package:fitnestx/features/activity/activity_screen.dart';
 import 'package:fitnestx/features/home/view/home_screen.dart';
 import 'package:fitnestx/features/profile/view/profile_screen.dart';
-import 'package:fitnestx/features/workout_tracker/view/workout_tracker_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,7 +32,7 @@ class BottomNavBarController extends GetxController{
 
   final List<Widget> pages = [
     HomeScreen(),
-    WorkoutTrackerScreen(),
+    ActivityScreen(),
     Center(child: Text("Camera Page")),
     ProfileScreen()
   ];

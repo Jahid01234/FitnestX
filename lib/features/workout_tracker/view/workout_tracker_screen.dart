@@ -37,7 +37,7 @@ class WorkoutTrackerScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Opacity(opacity: 0, child: AppBackButton()),
+                     AppBackButton(bgColor: Colors.white),
                       Text(
                         "Workout Tracker",
                         style: globalTextStyle(
@@ -151,6 +151,7 @@ class WorkoutTrackerScreen extends StatelessWidget {
                                   itemCount: controller.upcomingWorkoutList.length,
                                   itemBuilder: (context, index) {
                                     return UpcomingWorkoutCard(
+                                      controller: controller,
                                       workoutModel: controller.upcomingWorkoutList[index],
                                       index: index,
                                     );

@@ -30,5 +30,9 @@ class ImagePath{
   static const String skipping = "assets/images/skipping.png";
   static const String squats = "assets/images/squats.png";
   static const String warmUp = "assets/images/warmUp.png";
+  static const String lowfatMilk = "assets/images/lowfatMilk.png";
+  static const String salmonNigiri = "assets/images/salmonNigiri.png";
+  static const String beef = "assets/images/beef.png";
+  static const String bread = "assets/images/bread.png";
 
 }
