@@ -1,6 +1,7 @@
 import 'package:fitnestx/core/global_widgets/activities_action_card.dart';
 import 'package:fitnestx/core/global_widgets/app_back_button.dart';
 import 'package:fitnestx/core/global_widgets/header_selection_widget.dart';
+import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/meal_planner/controller/meal_planner_controller.dart';
 import 'package:fitnestx/features/meal_planner/view/widgets/meal_nutrition_chart.dart';
@@ -115,17 +116,22 @@ class MealPlannerScreen extends StatelessWidget {
                       SizedBox(height: 10),
                       Obx(() => SizedBox(
                         height: 240,
-                        child: ListView.separated(
+                        child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           padding: EdgeInsets.zero,
                           itemCount: controller.mealOptionList.length,
-                          separatorBuilder: (_,__){
-                            return SizedBox(width: 20);
-                          },
                           itemBuilder: (context, index) {
-                            return MealOptionCard(
-                              controller: controller,
-                              model: controller.mealOptionList[index],
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: GestureDetector(
+                                onTap: (){
+                                  Get.toNamed(AppRoutes.breakFast);
+                                },
+                                child: MealOptionCard(
+                                  controller: controller,
+                                  model: controller.mealOptionList[index],
+                                ),
+                              ),
                             );
                           },
                          ),

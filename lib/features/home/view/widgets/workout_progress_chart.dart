@@ -142,7 +142,7 @@ class WorkoutProgressChart extends StatelessWidget {
                     borderData: FlBorderData(show: false),
                     minX: 0,
                     maxX: 6,
-                    minY: 0,
+                    minY: -0.5,
                     maxY: 100,
 
                     /// LINES

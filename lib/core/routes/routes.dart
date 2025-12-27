@@ -9,6 +9,7 @@ import 'package:fitnestx/features/bottom_nav/view/bottom_nav_bar_screen.dart';
 import 'package:fitnestx/features/home/view/activity_tracker_screen.dart';
 import 'package:fitnestx/features/home/view/see_more_latest_activity_screen.dart';
 import 'package:fitnestx/features/home/view/see_more_latest_workout_screen.dart';
+import 'package:fitnestx/features/meal_planner/view/break_fast_screen.dart';
 import 'package:fitnestx/features/meal_planner/view/meal_planner_screen.dart';
 import 'package:fitnestx/features/notification/view/notification_screen.dart';
 import 'package:fitnestx/features/onboarding/view/onboarding_screen.dart';
@@ -42,6 +43,7 @@ class AppRoutes {
   static const String addSchedule = '/addSchedule';
   static const String workoutTracker = '/workoutTracker';
   static const String mealPlanner = '/mealPlanner';
+  static const String breakFast = '/breakFast';
 
 
 
@@ -148,6 +150,11 @@ class AppRoutes {
     GetPage(
       name: mealPlanner,
       page: ()=> MealPlannerScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: breakFast,
+      page: ()=> BreakFastScreen(),
       transition: Transition.leftToRight,
     ),
   ];

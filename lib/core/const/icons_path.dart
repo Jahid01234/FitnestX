@@ -28,4 +28,9 @@ class IconsPath {
   static const String workoutProgress = "assets/icons/workoutProgress.png";
   static const String barbelIcon = "assets/icons/barbelIcon.png";
   static const String chartIcon = "assets/icons/chartIcon.png";
+  static const String pie = "assets/icons/pie.png";
+  static const String cake = "assets/icons/cake.png";
+  static const String salad = "assets/icons/salad.png";
+  static const String smoothies = "assets/icons/smoothies.png";
+  static const String filter = "assets/icons/filter.png";
 }
