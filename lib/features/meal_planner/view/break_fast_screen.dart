@@ -2,6 +2,7 @@ import 'package:fitnestx/core/global_widgets/app_back_button.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/meal_planner/controller/break_fast_controller.dart';
 import 'package:fitnestx/features/meal_planner/view/widgets/category_card.dart';
+import 'package:fitnestx/features/meal_planner/view/widgets/recommendation_diet_card.dart';
 import 'package:fitnestx/features/meal_planner/view/widgets/search_filter_section.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -86,6 +87,25 @@ class BreakFastScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 10),
+                      Obx(() => SizedBox(
+                        height: 250,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          padding: EdgeInsets.zero,
+                          itemCount: controller.recommendationDietList.length,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: RecommendationDietCard(
+                                model: controller.recommendationDietList[index],
+                                index: index,
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      ),
+                      SizedBox(height: 30),
                     ],
                   ),
                 ),

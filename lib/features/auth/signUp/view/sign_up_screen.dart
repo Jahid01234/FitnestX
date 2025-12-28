@@ -70,8 +70,8 @@ class SignUpScreen extends StatelessWidget {
                     onPressed: controller.togglePasswordVisibility,
                     icon: Icon(
                       controller.isPasswordHidden.value
-                          ? Icons.visibility_off_outlined
-                          : Icons.visibility_outlined,
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off_outlined,
                       color: AppColors.gray,
                     ),
                   ),

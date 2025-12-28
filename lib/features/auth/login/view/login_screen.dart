@@ -7,10 +7,9 @@ import 'package:fitnestx/core/global_widgets/custom_text_field.dart';
 import 'package:fitnestx/core/global_widgets/success_dialog.dart';
 import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
-import 'package:fitnestx/features/auth/signUp/controller/sign_up_controller.dart';
+import 'package:fitnestx/features/auth/login/controller/login_controller.dart';
 import 'package:fitnestx/features/auth/signUp/view/Widgets/header_section.dart';
 import 'package:fitnestx/features/auth/signUp/view/Widgets/social_media_button.dart';
-import 'package:fitnestx/features/bottom_nav/view/bottom_nav_bar_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,7 +17,7 @@ import 'package:get/get.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
 
-  final SignupController controller = Get.put(SignupController());
+  final LoginController controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +54,8 @@ class LoginScreen extends StatelessWidget {
                     onPressed: controller.togglePasswordVisibility,
                     icon: Icon(
                       controller.isPasswordHidden.value
-                          ? Icons.visibility_off_outlined
-                          : Icons.visibility_outlined,
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off_outlined,
                       color: AppColors.gray,
                     ),
                   ),
