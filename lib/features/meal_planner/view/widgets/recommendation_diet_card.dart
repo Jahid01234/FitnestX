@@ -47,7 +47,7 @@ class RecommendationDietCard extends StatelessWidget {
               model.title,
               style: globalTextStyle(
                   color: AppColors.black,
-                  fontSize: 16,
+                  fontSize: 15,
                   fontWeight: FontWeight.w500,
               ),
             ),

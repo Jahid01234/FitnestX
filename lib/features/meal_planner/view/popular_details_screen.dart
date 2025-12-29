@@ -1,26 +1,25 @@
+import 'package:expandable_text/expandable_text.dart';
 import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/const/app_size.dart';
-import 'package:fitnestx/core/const/icons_path.dart';
 import 'package:fitnestx/core/global_widgets/app_back_button.dart';
 import 'package:fitnestx/core/global_widgets/app_primary_button.dart';
-import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
-import 'package:fitnestx/features/workout_tracker/controller/workout_details_controller.dart';
-import 'package:fitnestx/features/workout_tracker/model/train_option_model.dart';
-import 'package:fitnestx/features/workout_tracker/view/widgets/action_select_tile.dart';
-import 'package:fitnestx/features/workout_tracker/view/widgets/equipment_card.dart';
-import 'package:fitnestx/features/workout_tracker/view/widgets/exercise_set_card.dart';
+import 'package:fitnestx/features/meal_planner/controller/popular_details_controller.dart';
+import 'package:fitnestx/features/meal_planner/model/popular_model.dart';
+import 'package:fitnestx/features/meal_planner/view/widgets/ingredients_card.dart';
+import 'package:fitnestx/features/meal_planner/view/widgets/nutrition_card.dart';
+import 'package:fitnestx/features/meal_planner/view/widgets/step_to_step_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class WorkoutDetailsScreen extends StatelessWidget {
-  WorkoutDetailsScreen({super.key});
+class PopularDetailsScreen extends StatelessWidget {
+  PopularDetailsScreen({super.key});
 
-  final WorkoutDetailsController controller = Get.put(
-    WorkoutDetailsController(),
+  final PopularDetailsController controller = Get.put(
+    PopularDetailsController(),
   );
 
-  final TrainOptionModel trainOption = Get.arguments as TrainOptionModel;
+  final PopularModel popularModel = Get.arguments as PopularModel;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +43,7 @@ class WorkoutDetailsScreen extends StatelessWidget {
                     children: [
                       AppBackButton(bgColor: Colors.white),
                       Text(
-                        "Workout Details",
+                        "Popular Details",
                         style: globalTextStyle(
                           fontSize: 22,
                           color: Colors.white,
@@ -68,7 +67,10 @@ class WorkoutDetailsScreen extends StatelessWidget {
                         color: Colors.white24,
                         shape: BoxShape.circle,
                       ),
-                      child: Image.asset(trainOption.image, fit: BoxFit.fill),
+                      child: Padding(
+                        padding: const EdgeInsets.all(30.0),
+                        child: Image.asset(popularModel.image, fit: BoxFit.fill),
+                      ),
                     ),
                   ),
                 ],
@@ -128,29 +130,43 @@ class WorkoutDetailsScreen extends StatelessWidget {
                                   Expanded(
                                     child: Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          trainOption.title,
+                                          popularModel.title,
                                           style: globalTextStyle(
                                             fontWeight: FontWeight.w600,
                                             fontSize: 18,
                                           ),
                                         ),
                                         const SizedBox(height: 3),
-                                        Text(
-                                          '${trainOption.exercises} | ${trainOption.duration} | ${trainOption.calories}',
-                                          style: globalTextStyle(
-                                            color: AppColors.gray,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 13,
+                                        RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'by ',
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                  color: Colors.grey,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'James Ruth',
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                  color: AppColors.primaryColor1,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ],
                                     ),
                                   ),
                                   Obx(
-                                    () => IconButton(
+                                        () => IconButton(
                                       onPressed: controller.toggleFavorite,
                                       icon: Icon(
                                         controller.isFavorite.value
@@ -165,178 +181,164 @@ class WorkoutDetailsScreen extends StatelessWidget {
                                 ],
                               ),
                             ),
-
                             SizedBox(height: 30),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15,
-                              ),
-                              child: Column(
-                                children: [
-                                  Obx(
-                                    () => ActionSelectTile(
-                                      image: IconsPath.calendar,
-                                      title: 'Schedule Workout',
-                                      value: controller.formattedDate,
-                                      bgColor: Colors.blue.shade50,
-                                      onTap: () => controller.pickDate(context),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 12),
-                                  Obx(
-                                    () => ActionSelectTile(
-                                      image: IconsPath.height,
-                                      title: 'Difficulty',
-                                      value: controller.difficulty.value,
-                                      bgColor: Colors.purple.shade50,
-                                      onTap: controller.showDifficultySheet,
-                                    ),
-                                  ),
-                                ],
+                              padding: const EdgeInsets.only(left: 15),
+                              child: Text(
+                                "Nutrition",
+                                style: globalTextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18,
+                                ),
                               ),
                             ),
-                            SizedBox(height: 30),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'You’ll Need',
-                                    style: globalTextStyle(
-                                      fontSize: 18,
-                                      color: AppColors.black,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  Text(
-                                    '5 Items',
-                                    style: globalTextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(height: 12),
-                            SizedBox(
-                              height: 185,
-                              child: Obx(
-                                () => ListView.builder(
+                            SizedBox(height: 10),
+                            Obx(() => Padding(
+                              padding: const EdgeInsets.only(left: 15),
+                              child: SizedBox(
+                                height: 40,
+                                child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
-                                  itemCount:
-                                      controller.equipmentDataList.length,
+                                  padding: EdgeInsets.zero,
+                                  itemCount: controller.nutritionList.length,
                                   itemBuilder: (context, index) {
                                     return Padding(
-                                      padding: const EdgeInsets.only(
-                                        right: 10,
-                                        left: 15,
-                                      ),
-                                      child: EquipmentCard(
-                                        equipmentModel:
-                                            controller.equipmentDataList[index],
+                                      padding: const EdgeInsets.only(right: 15),
+                                      child: NutritionCard(
+                                        model: controller.nutritionList[index],
                                       ),
                                     );
                                   },
                                 ),
                               ),
                             ),
+                            ),
                             SizedBox(height: 30),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15,
+                              padding: const EdgeInsets.only(left: 15),
+                              child: Text(
+                                "Descriptions",
+                                style: globalTextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18,
+                                ),
                               ),
+                            ),
+                            SizedBox(height: 10),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 15),
+                              child: ExpandableText(
+                                "Pancakes are some people's favorite breakfast, who"
+                                    " doesn't like pancakes? Especially with the real"
+                                    " honey splash on top of the pancakes, of course"
+                                    " everyone loves that! besides being.",
+                                maxLines: 3,
+                                expandText: 'Read more',
+                                collapseText: 'Read less',
+                                linkColor: AppColors.primaryColor1,
+                                style: globalTextStyle(
+                                  color: AppColors.gray,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 30),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 15),
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                    'Exercises',
-                                    style: globalTextStyle(
-                                      fontSize: 18,
-                                      color: AppColors.black,
-                                      fontWeight: FontWeight.w600,
+                                  Expanded(
+                                    child: Text(
+                                      "Ingredients That You Will Need",
+                                      style: globalTextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ),
+                                  SizedBox(width: 100),
                                   Text(
-                                    '3 Sets',
+                                    "4 items",
                                     style: globalTextStyle(
-                                      color: Colors.grey,
                                       fontSize: 14,
+                                      color: AppColors.gray,
                                       fontWeight: FontWeight.w400,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            Obx(() {
-                              return ListView.builder(
-                                padding: EdgeInsets.zero,
-                                shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
-                                itemCount:
-                                    controller.exerciseSetDataList.length,
-                                itemBuilder: (context, setIndex) {
-                                  final set =
-                                      controller.exerciseSetDataList[setIndex];
-                                  return Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 15,
-                                      vertical: 10,
-                                    ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          set.setName,
-                                          style: globalTextStyle(
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w600,
-                                            color: AppColors.black,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 8),
-                                        ListView.builder(
-                                          padding: EdgeInsets.zero,
-                                          itemCount: set.exercises.length,
-                                          shrinkWrap: true,
-                                          physics: const NeverScrollableScrollPhysics(),
-                                          itemBuilder: (context, index) {
-                                            return ExerciseSetCard(
-                                              exercise: set.exercises[index],
-                                              onTap: () {
-                                                Get.toNamed(
-                                                    AppRoutes.exerciseDetails,
-                                                    arguments: set.exercises[index],
-                                                );
-                                              },
-                                            );
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              );
-                             },
+                            SizedBox(height: 10),
+                            Obx(() => Padding(
+                              padding: const EdgeInsets.only(left: 15),
+                              child: SizedBox(
+                                height: 150,
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  padding: EdgeInsets.zero,
+                                  itemCount: controller.ingredientsList.length,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding: const EdgeInsets.only(right: 15),
+                                      child: IngredientsCard(
+                                        model: controller.ingredientsList[index],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.fromLTRB(
-                                15,
-                                10,
-                                15,
-                                20,
+                              padding: const EdgeInsets.symmetric(horizontal: 15),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Step by Step",
+                                    style: globalTextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  Text(
+                                    "5 steps",
+                                    style: globalTextStyle(
+                                      fontSize: 14,
+                                      color: AppColors.gray,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
                               ),
+                            ),
+
+                            const SizedBox(height: 20),
+
+                            Obx(() {
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 15),
+                                child: Column(
+                                  children: List.generate(
+                                    controller.stepsDataList.length,
+                                        (index) => StepToStepItem(
+                                      step: controller.stepsDataList[index],
+                                      isLast: index == controller.stepsDataList.length - 1,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 30),
                               child: AppPrimaryButton(
-                                text: "Start Workout",
+                                text: "Add to Breakfast Meal",
                                 textColor: Colors.white,
-                                onTap: () {},
+                                onTap: () {
+                                },
                               ),
                             ),
                           ],

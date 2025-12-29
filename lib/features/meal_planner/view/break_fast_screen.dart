@@ -1,7 +1,9 @@
 import 'package:fitnestx/core/global_widgets/app_back_button.dart';
+import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/meal_planner/controller/break_fast_controller.dart';
 import 'package:fitnestx/features/meal_planner/view/widgets/category_card.dart';
+import 'package:fitnestx/features/meal_planner/view/widgets/popular_card.dart';
 import 'package:fitnestx/features/meal_planner/view/widgets/recommendation_diet_card.dart';
 import 'package:fitnestx/features/meal_planner/view/widgets/search_filter_section.dart';
 import 'package:flutter/material.dart';
@@ -106,6 +108,40 @@ class BreakFastScreen extends StatelessWidget {
                       ),
                       ),
                       SizedBox(height: 30),
+                      Text(
+                        "Popular",
+                        style: globalTextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Obx(() => ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: controller.popularModelList.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: (){
+                              Get.toNamed(
+                                  AppRoutes.popularDetails,
+                                  arguments: controller.popularModelList[index],
+                              );
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 15),
+                              child: PopularCard(
+                                model: controller.popularModelList[index],
+                              ),
+                            ),
+                          );
+                        },
+                       ),
+                      ),
+                      SizedBox(height: 50),
                     ],
                   ),
                 ),

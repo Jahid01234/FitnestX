@@ -33,4 +33,8 @@ class IconsPath {
   static const String salad = "assets/icons/salad.png";
   static const String smoothies = "assets/icons/smoothies.png";
   static const String filter = "assets/icons/filter.png";
+  static const String proteins = "assets/icons/proteins.png";
+  static const String fats = "assets/icons/fats.png";
+  static const String carbo = "assets/icons/carbo.png";
+  static const String calories = "assets/icons/calories.png";
 }
