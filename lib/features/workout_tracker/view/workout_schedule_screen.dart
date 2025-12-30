@@ -1,4 +1,5 @@
 import 'package:fitnestx/core/global_widgets/app_back_button.dart';
+import 'package:fitnestx/core/global_widgets/floating_action_button_widget.dart';
 import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/workout_tracker/controller/workout_schedule_controller.dart';
@@ -17,27 +18,10 @@ class WorkoutScheduleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Container(
-        width: 60,
-        height: 60,
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Color(0xffC58BF2), Color(0xffEEA4CE)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(30),
-        ),
-        child: FloatingActionButton(
-          splashColor: Colors.transparent,
-          highlightElevation: 0,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          onPressed: () {
-            Get.toNamed(AppRoutes.addSchedule);
-          },
-          child: const Icon(Icons.add, color: Colors.white, size: 28),
-        ),
+      floatingActionButton: FloatingActionButtonWidget(
+        onPressed: () {
+              Get.toNamed(AppRoutes.addSchedule);
+            },
       ),
       body: SafeArea(
         child: Column(
@@ -73,7 +57,6 @@ class WorkoutScheduleScreen extends StatelessWidget {
             Expanded(
               child: Obx(
                     () => Container(
-                  //margin: const EdgeInsets.symmetric(horizontal: 10),
                   padding: const EdgeInsets.only(left: 20),
                   decoration: BoxDecoration(
                     color: Colors.white,

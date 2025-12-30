@@ -3,6 +3,7 @@ import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/const/app_size.dart';
 import 'package:fitnestx/core/global_widgets/app_back_button.dart';
 import 'package:fitnestx/core/global_widgets/app_primary_button.dart';
+import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/meal_planner/controller/popular_details_controller.dart';
 import 'package:fitnestx/features/meal_planner/model/popular_model.dart';
@@ -338,6 +339,7 @@ class PopularDetailsScreen extends StatelessWidget {
                                 text: "Add to Breakfast Meal",
                                 textColor: Colors.white,
                                 onTap: () {
+                                  Get.toNamed(AppRoutes.mealSchedule);
                                 },
                               ),
                             ),

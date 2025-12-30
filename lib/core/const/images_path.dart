@@ -40,5 +40,11 @@ class ImagePath{
   static const String sugar = "assets/images/sugar.png";
   static const String eggs = "assets/images/eggs.png";
   static const String bakingSoda = "assets/images/bakingSoda.png";
+  static const String applePie = "assets/images/applePie.png";
+  static const String chickenSteak = "assets/images/chickenSteak.png";
+  static const String coffee = "assets/images/coffee.png";
+  static const String fruitSalad = "assets/images/fruitSalad.png";
+  static const String oatmeal = "assets/images/oatmeal.png";
+  static const String orange = "assets/images/orange.png";
 
 }
