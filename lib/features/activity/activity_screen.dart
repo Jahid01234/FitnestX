@@ -36,7 +36,9 @@ class ActivityScreen extends StatelessWidget {
                 AppPrimaryButton(
                   text: "Sleep Tracker",
                   textColor: Colors.white,
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(AppRoutes.sleepTracker);
+                  },
                 ),
               ],
             ),
