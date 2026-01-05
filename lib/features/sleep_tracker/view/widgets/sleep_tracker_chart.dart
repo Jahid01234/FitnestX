@@ -157,8 +157,8 @@ class SleepTrackerChart extends StatelessWidget {
           ),
           // 43% increase label
           Positioned(
-            top: 30,
-            right: 80,
+            top: 90,
+            right: 100,
             child: Container(
               padding:
               const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -185,8 +185,8 @@ class SleepTrackerChart extends StatelessWidget {
           ),
           Positioned(
             left: MediaQuery.of(context).size.width * 0.53,
-            top: 0,
-            bottom: 40,
+            top: 130,
+            bottom: 50,
             child: DottedDashedLine(
               height: 0,
               width: 1,

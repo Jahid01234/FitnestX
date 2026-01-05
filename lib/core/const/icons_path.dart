@@ -37,4 +37,7 @@ class IconsPath {
   static const String fats = "assets/icons/fats.png";
   static const String carbo = "assets/icons/carbo.png";
   static const String calories = "assets/icons/calories.png";
+  static const String alarm = "assets/icons/alarm.png";
+  static const String bed = "assets/icons/bed.png";
+  static const String sun = "assets/icons/sun.png";
 }

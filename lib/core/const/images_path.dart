@@ -46,5 +46,6 @@ class ImagePath{
   static const String fruitSalad = "assets/images/fruitSalad.png";
   static const String oatmeal = "assets/images/oatmeal.png";
   static const String orange = "assets/images/orange.png";
+  static const String sleepGraph2 = "assets/images/sleepGraph.png";
 
 }
