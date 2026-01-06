@@ -36,7 +36,7 @@ class TodayTargetCard extends StatelessWidget {
                   fontSize: 20,
                   bgColor: AppColors.primaryColor1,
                   height: 30,
-                  weight: 30,
+                  width: 30,
                   radius: 10,
                   textColor: AppColors.white,
                   onTap: () {},

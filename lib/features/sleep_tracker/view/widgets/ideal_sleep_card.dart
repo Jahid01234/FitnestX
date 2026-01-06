@@ -46,7 +46,7 @@ class IdealSleepCard extends StatelessWidget {
                  SizedBox(height: 20),
                  AppPrimaryButton(
                    height: 38,
-                   weight: 130,
+                   width: 130,
                    text: "Learn More",
                    textColor: Colors.white,
                    onTap: (){},

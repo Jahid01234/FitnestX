@@ -15,6 +15,7 @@ import 'package:fitnestx/features/meal_planner/view/meal_schedule_screen.dart';
 import 'package:fitnestx/features/meal_planner/view/popular_details_screen.dart';
 import 'package:fitnestx/features/notification/view/notification_screen.dart';
 import 'package:fitnestx/features/onboarding/view/onboarding_screen.dart';
+import 'package:fitnestx/features/sleep_tracker/view/add_alarm_screen.dart';
 import 'package:fitnestx/features/sleep_tracker/view/sleep_schedule_screen.dart';
 import 'package:fitnestx/features/sleep_tracker/view/sleep_tracker_screen.dart';
 import 'package:fitnestx/features/splash/view/splash_screen.dart';
@@ -52,6 +53,7 @@ class AppRoutes {
   static const String mealSchedule = '/mealSchedule';
   static const String sleepTracker = '/sleepTracker';
   static const String sleepSchedule = '/sleepSchedule';
+  static const String addAlarm = '/addAlarm';
 
 
 
@@ -183,6 +185,11 @@ class AppRoutes {
     GetPage(
       name: sleepSchedule,
       page: ()=> SleepScheduleScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: addAlarm,
+      page: ()=> AddAlarmScreen(),
       transition: Transition.leftToRight,
     ),
   ];

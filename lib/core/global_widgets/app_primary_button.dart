@@ -12,7 +12,7 @@ class AppPrimaryButton extends StatelessWidget {
   final Color? textColor;
   final double? fontSize;
   final double? height;
-  final double? weight;
+  final double? width;
   final FontWeight? fontWeight;
 
   const AppPrimaryButton({
@@ -26,7 +26,7 @@ class AppPrimaryButton extends StatelessWidget {
     this.radius,
     this.fontSize,
     this.height,
-    this.weight,
+    this.width,
     this.fontWeight,
   });
 
@@ -39,7 +39,7 @@ class AppPrimaryButton extends StatelessWidget {
         onTap: onTap,
         child: Container(
           height: height ?? 60,
-          width: weight ?? double.infinity,
+          width: width ?? double.infinity,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(radius ?? 30),

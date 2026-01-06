@@ -48,7 +48,7 @@ class ActivitiesActionCard extends StatelessWidget {
             fontSize: 14,
             bgColor: const Color(0xFFD4B5E8),
             height: 40,
-            weight: 100,
+            width: 100,
             textColor: AppColors.white,
             onTap: onTap,
           ),

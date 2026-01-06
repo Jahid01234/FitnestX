@@ -45,7 +45,7 @@ class TrainOptionCard extends StatelessWidget {
                 const SizedBox(height: 15),
                 AppPrimaryButton(
                   height: 45,
-                  weight: 120,
+                  width: 120,
                   text: "View more",
                   fontSize: 14,
                   bgColor: AppColors.white,

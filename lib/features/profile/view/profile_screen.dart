@@ -82,7 +82,7 @@ class ProfileScreen extends StatelessWidget {
                             textColor: AppColors.white,
                             onTap: () {},
                             height: 50,
-                            weight: 100,
+                            width: 100,
                           ),
                         ],
                       ),

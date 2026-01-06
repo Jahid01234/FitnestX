@@ -1,4 +1,6 @@
 import 'package:fitnestx/core/global_widgets/app_back_button.dart';
+import 'package:fitnestx/core/global_widgets/floating_action_button_widget.dart';
+import 'package:fitnestx/core/routes/routes.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:fitnestx/features/sleep_tracker/controller/sleep_tracker_controller.dart';
 import 'package:fitnestx/features/sleep_tracker/view/widgets/custom_sleep_calendar_title_bar.dart';
@@ -16,7 +18,11 @@ class SleepScheduleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //floatingActionButton: ,
+      floatingActionButton: FloatingActionButtonWidget(
+          onPressed: () {
+            Get.toNamed(AppRoutes.addAlarm);
+          },
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 50),
         child: Column(
@@ -80,7 +86,7 @@ class SleepScheduleScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 30),
                     SleepSummaryCard(),
-                    SizedBox(height: 50),
+                    SizedBox(height: 80),
                   ],
                 ),
               ),

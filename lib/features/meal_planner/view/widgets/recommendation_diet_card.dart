@@ -62,7 +62,7 @@ class RecommendationDietCard extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             AppPrimaryButton(
-                weight: 120,
+                width: 120,
                 height: 43,
                 text: "View",
                 fontSize: 14,

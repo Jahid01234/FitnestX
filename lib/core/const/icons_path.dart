@@ -40,4 +40,8 @@ class IconsPath {
   static const String alarm = "assets/icons/alarm.png";
   static const String bed = "assets/icons/bed.png";
   static const String sun = "assets/icons/sun.png";
+  static const String beds = "assets/icons/beds.png";
+  static const String clock = "assets/icons/clock.png";
+  static const String repeat = "assets/icons/repeat.png";
+  static const String vibrate = "assets/icons/vibrate.png";
 }

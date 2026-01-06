@@ -54,7 +54,7 @@ class BMICardChartSection extends StatelessWidget {
                     fontSize: 14,
                     bgColor: Color(0xFFD4B5E8),
                     height: 50,
-                    weight: 120,
+                    width: 120,
                     textColor: AppColors.white,
                     onTap: () {},
                   ),
