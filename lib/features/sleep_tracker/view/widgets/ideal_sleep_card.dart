@@ -1,6 +1,5 @@
 import 'package:fitnestx/core/const/app_colors.dart';
 import 'package:fitnestx/core/const/icons_path.dart';
-import 'package:fitnestx/core/const/images_path.dart';
 import 'package:fitnestx/core/global_widgets/app_primary_button.dart';
 import 'package:fitnestx/core/style/global_text_style.dart';
 import 'package:flutter/material.dart';

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class FloatingActionButtonWidget extends StatelessWidget {
   final VoidCallback? onPressed;
+  final IconData? icon;
 
   const FloatingActionButtonWidget({
     super.key,
     this.onPressed,
+    this.icon,
   });
 
   @override
@@ -27,7 +29,7 @@ class FloatingActionButtonWidget extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         onPressed: onPressed,
-        child: const Icon(Icons.add, color: Colors.white, size: 28),
+        child: Icon( icon ?? Icons.add, color: Colors.white, size: 28),
       ),
     );
   }

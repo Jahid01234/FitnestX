@@ -76,9 +76,12 @@ class SleepScheduleScreen extends StatelessWidget {
                           physics: NeverScrollableScrollPhysics(),
                           itemCount: controller.remindersList.length,
                           itemBuilder: (context, index) {
-                            return SleepReminderCard(
-                              index: index,
-                              controller: controller,
+                            return Padding(
+                              padding: const EdgeInsets.only(left: 15),
+                              child: SleepReminderCard(
+                                index: index,
+                                controller: controller,
+                              ),
                             );
                           },
                         ),

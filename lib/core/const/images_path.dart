@@ -47,5 +47,16 @@ class ImagePath{
   static const String oatmeal = "assets/images/oatmeal.png";
   static const String orange = "assets/images/orange.png";
   static const String sleepGraph2 = "assets/images/sleepGraph.png";
+  static const String alarmClock = "assets/images/alarmClock.png";
+  static const String calender = "assets/images/calender.png";
+  static const String g1 = "assets/images/g1.png";
+  static const String g2 = "assets/images/g2.png";
+  static const String g3 = "assets/images/g3.png";
+  static const String g4 = "assets/images/g4.png";
+  static const String g5 = "assets/images/g5.png";
+  static const String g6 = "assets/images/g6.png";
+  static const String g7 = "assets/images/g7.png";
+  static const String g8 = "assets/images/g8.png";
+
 
 }
