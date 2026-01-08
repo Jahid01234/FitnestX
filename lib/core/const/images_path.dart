@@ -57,6 +57,7 @@ class ImagePath{
   static const String g6 = "assets/images/g6.png";
   static const String g7 = "assets/images/g7.png";
   static const String g8 = "assets/images/g8.png";
+  static const String fullBody = "assets/images/fullBody.png";
 
 
 }

@@ -22,6 +22,7 @@ class ProgressTrackerScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButtonWidget(
         icon: Icons.photo_camera_outlined,
         onPressed: () {
+          Get.toNamed(AppRoutes.checkFitnessBody);
         },
       ),
       body: Padding(

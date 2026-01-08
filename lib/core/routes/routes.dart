@@ -15,6 +15,7 @@ import 'package:fitnestx/features/meal_planner/view/meal_schedule_screen.dart';
 import 'package:fitnestx/features/meal_planner/view/popular_details_screen.dart';
 import 'package:fitnestx/features/notification/view/notification_screen.dart';
 import 'package:fitnestx/features/onboarding/view/onboarding_screen.dart';
+import 'package:fitnestx/features/progress_tracker/view/check_fitness_body_screen.dart';
 import 'package:fitnestx/features/progress_tracker/view/compare_result_screen.dart';
 import 'package:fitnestx/features/progress_tracker/view/compare_screen.dart';
 import 'package:fitnestx/features/sleep_tracker/view/add_alarm_screen.dart';
@@ -58,6 +59,7 @@ class AppRoutes {
   static const String addAlarm = '/addAlarm';
   static const String compare = '/compare';
   static const String compareResult = '/compareResult';
+  static const String checkFitnessBody = '/checkFitnessBody';
 
 
 
@@ -204,6 +206,11 @@ class AppRoutes {
     GetPage(
       name: compareResult,
       page: ()=> CompareResultScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
+      name: checkFitnessBody,
+      page: ()=> CheckFitnessBodyScreen(),
       transition: Transition.leftToRight,
     ),
   ];
